@@ -54,15 +54,11 @@ with st.sidebar:
     arquivo = st.file_uploader("Upload Excel/CSV (formato Vol&Mix)", type=["xlsx", "xls", "csv"], key="vendas_upload")
 
     st.markdown("---")
-    st.markdown("### 🔗 Google Forms")
+    st.markdown("### 🔗 Inserir Lançamentos")
     st.markdown("""
-**Contas a Pagar:**
-[📝 Abrir formulário](#)
+[📤 Contas a Pagar](https://docs.google.com/forms/d/e/1FAIpQLScibj5eQHjaL33CzlajW7spAjOppZhgXz-rXqVFvzoysXCisw/viewform)
 
-**Contas a Receber:**
-[📝 Abrir formulário](#)
-
-*(configure os links após criar os Forms)*
+[📥 Contas a Receber](https://docs.google.com/forms/d/e/1FAIpQLSfZDvLRZAZXNF_2LNe5sw7fwW9IzQkZaOUcoeuS0u1pj90J5A/viewform)
 """)
     st.markdown("---")
     st.markdown("### 🎛️ Filtros")

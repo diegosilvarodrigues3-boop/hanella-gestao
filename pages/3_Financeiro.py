@@ -81,12 +81,10 @@ elif aba_sel == "Contas a Pagar":
     col_link, col_info = st.columns([1, 2])
     with col_link:
         st.markdown("""
-        ### 📝 Inserir via Google Forms
-        > Configure o link do seu Google Form para Contas a Pagar aqui.
-        >
-        > **[Abrir Formulário Contas a Pagar](#)**
-        >
-        > *Os dados são sincronizados automaticamente com o Google Sheets.*
+        ### 📝 Inserir lançamento
+        **[📤 Abrir Formulário Contas a Pagar](https://docs.google.com/forms/d/e/1FAIpQLScibj5eQHjaL33CzlajW7spAjOppZhgXz-rXqVFvzoysXCisw/viewform)**
+
+        *Dados sincronizados automaticamente com o Google Sheets.*
         """)
 
     # Filtros adicionais
@@ -137,10 +135,10 @@ elif aba_sel == "Contas a Receber":
     st.markdown("## 📥 Contas a Receber")
 
     st.markdown("""
-    ### 📝 Inserir via Google Forms
-    > **[Abrir Formulário Contas a Receber](#)**
-    >
-    > *Os dados são sincronizados automaticamente com o Google Sheets.*
+    ### 📝 Inserir lançamento
+    **[📥 Abrir Formulário Contas a Receber](https://docs.google.com/forms/d/e/1FAIpQLSfZDvLRZAZXNF_2LNe5sw7fwW9IzQkZaOUcoeuS0u1pj90J5A/viewform)**
+
+    *Dados sincronizados automaticamente com o Google Sheets.*
     """)
 
     col_f1, col_f2 = st.columns(2)
