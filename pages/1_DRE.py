@@ -8,10 +8,10 @@ st.set_page_config(page_title="DRE", page_icon="💰", layout="wide")
 st.markdown("""
 <style>
 .dre-row { display:flex; justify-content:space-between; padding:6px 12px; border-radius:6px; margin:2px 0; }
-.dre-total { background:#C8102E22; font-weight:700; font-size:1.05rem; }
-.dre-subtotal { background:#33333366; font-weight:600; }
-.dre-item { color:#ccc; font-size:0.92rem; }
-.dre-margem { color:#FFC107; font-style:italic; }
+.dre-total { background:#8B733622; font-weight:700; font-size:1.05rem; }
+.dre-subtotal { background:#F0EDE655; font-weight:600; }
+.dre-item { color:#555; font-size:0.92rem; }
+.dre-margem { color:#8B7336; font-style:italic; font-weight:600; }
 .pos { color:#00C853; } .neg { color:#FF1744; }
 </style>""", unsafe_allow_html=True)
 

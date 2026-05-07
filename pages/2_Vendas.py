@@ -97,7 +97,7 @@ if "mes" in df.columns and "categoria" in df.columns:
     pivot["mes_str"] = pivot["mes"].astype(str)
     heat_df = pivot.pivot(index="categoria", columns="mes_str", values="receita_bruta").fillna(0)
     fig_heat = px.imshow(
-        heat_df, color_continuous_scale=[[0, "#FFFFFF"], [0.5, "#8B0000"], [1, "#C8102E"]],
+        heat_df, color_continuous_scale=[[0, "#FFFFFF"], [0.5, "#8B0000"], [1, "#8B7336"]],
         text_auto=".0f", aspect="auto",
         labels=dict(color="Receita (R$)")
     )

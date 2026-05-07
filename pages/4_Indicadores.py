@@ -170,7 +170,7 @@ if "uf" in df_ano.columns:
     col_uf1, col_uf2 = st.columns(2)
     with col_uf1:
         fig_uf = px.bar(uf_data, x="uf", y="receita", color="receita",
-                        color_continuous_scale=[[0, "#8B0000"], [1, "#C8102E"]],
+                        color_continuous_scale=[[0, "#8B0000"], [1, "#8B7336"]],
                         text=uf_data["receita"].apply(lambda x: f"R$ {x/1000:.0f}k"),
                         labels={"uf": "Estado", "receita": "Receita (R$)"})
         fig_uf.update_traces(textposition="outside")
@@ -197,7 +197,7 @@ if "vendedor" in df_ano.columns:
     vend["share_pct"] = (vend["receita"] / vend["receita"].sum() * 100).round(1)
 
     fig_vend = px.bar(vend, x="vendedor", y="receita",
-                      color="receita", color_continuous_scale=[[0, "#8B0000"], [1, "#C8102E"]],
+                      color="receita", color_continuous_scale=[[0, "#8B0000"], [1, "#8B7336"]],
                       text=vend["receita"].apply(lambda x: f"R$ {x/1000:.0f}k"))
     fig_vend.update_traces(textposition="outside")
     fig_vend.update_layout(paper_bgcolor="#FFFFFF", plot_bgcolor="#F7F7F7",

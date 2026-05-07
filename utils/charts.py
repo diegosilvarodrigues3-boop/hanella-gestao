@@ -3,7 +3,7 @@ import plotly.express as px
 import pandas as pd
 
 CORES = {
-    "primaria": "#C8102E",
+    "primaria": "#8B7336",
     "secundaria": "#E57373",
     "positivo": "#1DB954",
     "negativo": "#E53935",
@@ -13,7 +13,7 @@ CORES = {
     "texto": "#1A1A1A",
     "texto_sub": "#888888",
     "grade": "#EBEBEB",
-    "paleta": ["#C8102E", "#E57373", "#F59E0B", "#F9C74F", "#1DB954",
+    "paleta": ["#8B7336", "#E57373", "#F59E0B", "#F9C74F", "#1DB954",
                "#2196F3", "#9C27B0", "#00BCD4", "#795548", "#607D8B"]
 }
 

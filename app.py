@@ -32,7 +32,7 @@ st.markdown("""
         text-align: center;
         box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-    .kpi-value { font-size: 1.7rem; font-weight: 700; color: #C8102E; line-height: 1.2; }
+    .kpi-value { font-size: 1.7rem; font-weight: 700; color: #8B7336; line-height: 1.2; }
     .kpi-label { font-size: 0.75rem; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
     .kpi-delta { font-size: 0.78rem; margin-top: 5px; }
     .pos { color: #1DB954; } .neg { color: #E53935; }
@@ -51,7 +51,7 @@ st.markdown("""
     }
     .header-title { font-size: 1.5rem; font-weight: 700; color: #1A1A1A; margin: 0; }
     .header-sub { font-size: 0.82rem; color: #999; margin: 2px 0 0 0; }
-    .red-dot { width: 10px; height: 10px; border-radius: 50%; background: #C8102E; display: inline-block; margin-right: 4px; }
+    .red-dot { width: 10px; height: 10px; border-radius: 50%; background: #8B7336; display: inline-block; margin-right: 4px; }
 
     /* Filtro central */
     .filter-bar {
@@ -69,7 +69,7 @@ st.markdown("""
 
     /* Tabs */
     .stTabs [data-baseweb="tab"] { color: #888; }
-    .stTabs [data-baseweb="tab"][aria-selected="true"] { color: #C8102E; border-bottom: 2px solid #C8102E; }
+    .stTabs [data-baseweb="tab"][aria-selected="true"] { color: #8B7336; border-bottom: 2px solid #8B7336; }
 
     /* Remover padding excessivo do main */
     .block-container { padding-top: 1.5rem !important; }
@@ -108,19 +108,13 @@ col_logo, col_titulo, col_spacer = st.columns([1, 5, 2])
 
 with col_logo:
     if os.path.exists(LOGO_PATH):
-        st.image(LOGO_PATH, width=80)
-    else:
-        st.markdown("""
-        <div style='background:#C8102E;border-radius:10px;width:64px;height:64px;
-        display:flex;align-items:center;justify-content:center;margin-top:4px;'>
-        <span style='color:white;font-size:1.6rem;'>👟</span></div>
-        """, unsafe_allow_html=True)
+        st.image(LOGO_PATH, width=90)
 
 with col_titulo:
     st.markdown("""
-    <div style='padding-top:6px;'>
-        <div style='font-size:1.6rem;font-weight:700;color:#1A1A1A;line-height:1.1;'>Hanella</div>
-        <div style='font-size:0.82rem;color:#999;margin-top:2px;'>Central de Gestão · Resultado Financeiro & Vendas</div>
+    <div style='padding-top:10px;'>
+        <div style='font-size:1.6rem;font-weight:700;color:#1A1A1A;line-height:1.1;'>Central de Gestão</div>
+        <div style='font-size:0.82rem;color:#999;margin-top:3px;'>Resultado Financeiro · Vendas · Indicadores Operacionais</div>
     </div>
     """, unsafe_allow_html=True)
 
