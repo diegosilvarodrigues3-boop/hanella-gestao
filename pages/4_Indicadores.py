@@ -43,22 +43,22 @@ def gauge(title, value, min_v, max_v, threshold_ok, threshold_warn, fmt="%"):
     fig = go.Figure(go.Indicator(
         mode="gauge+number+delta",
         value=value,
-        number={"suffix": fmt, "font": {"color": "white", "size": 28}},
-        title={"text": title, "font": {"color": "white", "size": 14}},
+        number={"suffix": fmt, "font": {"color": "#1A1A1A", "size": 28}},
+        title={"text": title, "font": {"color": "#555555", "size": 14}},
         gauge={
-            "axis": {"range": [min_v, max_v], "tickcolor": "white"},
+            "axis": {"range": [min_v, max_v], "tickcolor": "#888"},
             "bar": {"color": CORES["primaria"]},
-            "bgcolor": "#222",
+            "bgcolor": "#F7F7F7",
             "steps": [
-                {"range": [min_v, threshold_warn], "color": "#330000"},
-                {"range": [threshold_warn, threshold_ok], "color": "#332200"},
-                {"range": [threshold_ok, max_v], "color": "#003300"},
+                {"range": [min_v, threshold_warn], "color": "#FFE5E5"},
+                {"range": [threshold_warn, threshold_ok], "color": "#FFF3CD"},
+                {"range": [threshold_ok, max_v], "color": "#E8F5E9"},
             ],
             "threshold": {"line": {"color": CORES["neutro"], "width": 3},
                           "thickness": 0.75, "value": threshold_ok}
         }
     ))
-    fig.update_layout(paper_bgcolor="#1A1A1A", font=dict(color="white"),
+    fig.update_layout(paper_bgcolor="#FFFFFF", font=dict(color="#1A1A1A"),
                       height=220, margin=dict(l=20, r=20, t=40, b=10))
     return fig
 
@@ -174,8 +174,8 @@ if "uf" in df_ano.columns:
                         text=uf_data["receita"].apply(lambda x: f"R$ {x/1000:.0f}k"),
                         labels={"uf": "Estado", "receita": "Receita (R$)"})
         fig_uf.update_traces(textposition="outside")
-        fig_uf.update_layout(paper_bgcolor="#1A1A1A", plot_bgcolor="#1A1A1A",
-                              font=dict(color="white"), height=320, showlegend=False,
+        fig_uf.update_layout(paper_bgcolor="#FFFFFF", plot_bgcolor="#F7F7F7",
+                              font=dict(color="#1A1A1A"), height=320, showlegend=False,
                               coloraxis_showscale=False,
                               title="Receita por Estado")
         st.plotly_chart(fig_uf, use_container_width=True)
@@ -200,8 +200,8 @@ if "vendedor" in df_ano.columns:
                       color="receita", color_continuous_scale=[[0, "#8B0000"], [1, "#C8102E"]],
                       text=vend["receita"].apply(lambda x: f"R$ {x/1000:.0f}k"))
     fig_vend.update_traces(textposition="outside")
-    fig_vend.update_layout(paper_bgcolor="#1A1A1A", plot_bgcolor="#1A1A1A",
-                            font=dict(color="white"), height=340, showlegend=False,
+    fig_vend.update_layout(paper_bgcolor="#FFFFFF", plot_bgcolor="#F7F7F7",
+                            font=dict(color="#1A1A1A"), height=340, showlegend=False,
                             coloraxis_showscale=False, title="Receita por Vendedor")
     st.plotly_chart(fig_vend, use_container_width=True)
 

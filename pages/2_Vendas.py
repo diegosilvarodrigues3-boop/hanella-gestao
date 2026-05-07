@@ -97,12 +97,12 @@ if "mes" in df.columns and "categoria" in df.columns:
     pivot["mes_str"] = pivot["mes"].astype(str)
     heat_df = pivot.pivot(index="categoria", columns="mes_str", values="receita_bruta").fillna(0)
     fig_heat = px.imshow(
-        heat_df, color_continuous_scale=[[0, "#0F0F0F"], [0.5, "#8B0000"], [1, "#C8102E"]],
+        heat_df, color_continuous_scale=[[0, "#FFFFFF"], [0.5, "#8B0000"], [1, "#C8102E"]],
         text_auto=".0f", aspect="auto",
         labels=dict(color="Receita (R$)")
     )
-    fig_heat.update_layout(paper_bgcolor="#1A1A1A", plot_bgcolor="#1A1A1A",
-                           font=dict(color="white"), height=350,
+    fig_heat.update_layout(paper_bgcolor="#FFFFFF", plot_bgcolor="#F7F7F7",
+                           font=dict(color="#1A1A1A"), height=350,
                            margin=dict(l=20, r=20, t=30, b=20))
     st.plotly_chart(fig_heat, use_container_width=True)
 

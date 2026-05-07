@@ -53,8 +53,8 @@ if aba_sel == "Visão Geral":
             fig = px.pie(rec_tipo, names="tipo_receita", values="valor", hole=0.4,
                          color_discrete_sequence=CORES["paleta"],
                          title="Receitas por Tipo (Recebidas)")
-            fig.update_layout(paper_bgcolor="#1A1A1A", plot_bgcolor="#1A1A1A",
-                               font=dict(color="white"), height=380)
+            fig.update_layout(paper_bgcolor="#FFFFFF", plot_bgcolor="#F7F7F7",
+                               font=dict(color="#1A1A1A"), height=380)
             st.plotly_chart(fig, use_container_width=True)
 
     # Alertas
