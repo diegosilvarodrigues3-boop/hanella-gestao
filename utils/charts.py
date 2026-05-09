@@ -129,16 +129,18 @@ def grafico_bridge_dre(dre_a: dict, dre_b: dict, label_a: str, label_b: str):
         font=dict(size=13, color=cor_anotacao, family="Arial"),
     )
 
-    fig.update_layout(
-        **LAYOUT_BASE,
-        title=dict(
-            text=f"Variação do Lucro Líquido: <b>{label_a}</b> → <b>{label_b}</b>",
-            font=dict(size=15, color=CORES["texto"])
-        ),
-        height=500,
-        showlegend=False,
-        xaxis=dict(tickfont=dict(size=12, color=CORES["texto"])),
+    layout = dict(**LAYOUT_BASE)
+    layout["title"] = dict(
+        text=f"Variação do Lucro Líquido: <b>{label_a}</b> → <b>{label_b}</b>",
+        font=dict(size=15, color=CORES["texto"])
     )
+    layout["height"] = 500
+    layout["showlegend"] = False
+    layout["xaxis"] = dict(
+        gridcolor=CORES["grade"], zerolinecolor=CORES["grade"],
+        linecolor=CORES["grade"], tickfont=dict(size=12, color=CORES["texto"])
+    )
+    fig.update_layout(**layout)
     return fig
 
 
