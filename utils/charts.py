@@ -63,6 +63,85 @@ def _apply_layout(fig, title="", height=400):
 
 # ── Gráficos ──────────────────────────────────────────────────────────────────
 
+def grafico_bridge_dre(dre_a: dict, dre_b: dict, label_a: str, label_b: str):
+    """
+    Bridge chart (waterfall de variação) entre dois períodos.
+    Parte do Lucro Líquido do período A, mostra o impacto de cada linha da DRE
+    e chega ao Lucro Líquido do período B.
+    """
+
+    # Lucros líquidos dos dois períodos
+    ll_a = dre_a.get("= Lucro Líquido", 0)
+    ll_b = dre_b.get("= Lucro Líquido", 0)
+
+    # Impactos sobre o LL: positivo = melhora, negativo = piora
+    # Δ Receita Líquida: mais receita → mais LL (positivo = bom)
+    delta_rl   = dre_b.get("= Receita Líquida", 0) - dre_a.get("= Receita Líquida", 0)
+    # Δ CMV: se CMV sobe → LL cai (invertemos o sinal)
+    delta_cmv  = -(dre_b.get("(-) CMV", 0) - dre_a.get("(-) CMV", 0))   # já estão negativos no dict
+    # Δ Despesas Op.: se desp sobem → LL cai (invertemos)
+    delta_desp = -(dre_b.get("(-) Despesas Op.", 0) - dre_a.get("(-) Despesas Op.", 0))
+    # Δ Depreciação
+    delta_dep  = -(dre_b.get("(-) Depreciação", 0) - dre_a.get("(-) Depreciação", 0))
+
+    labels  = [f"LL {label_a}", "Δ Receita Líquida", "Δ CMV", "Δ Despesas Op.", "Δ Depreciação", f"LL {label_b}"]
+    values  = [ll_a, delta_rl, delta_cmv, delta_desp, delta_dep, ll_b]
+    measures= ["absolute", "relative", "relative", "relative", "relative", "total"]
+
+    # Textos formatados
+    def fmt(v, m):
+        prefix = "R$ " if m == "absolute" else ("+" if v >= 0 else "")
+        return f"{prefix}R$ {v:,.0f}" if m != "absolute" else f"R$ {v:,.0f}"
+
+    textos = []
+    for v, m in zip(values, measures):
+        if m == "absolute":
+            textos.append(f"R$ {v:,.0f}")
+        else:
+            sinal = "+" if v >= 0 else ""
+            textos.append(f"{sinal}R$ {v:,.0f}")
+
+    fig = go.Figure(go.Waterfall(
+        orientation="v",
+        measure=measures,
+        x=labels,
+        y=values,
+        text=textos,
+        textposition="outside",
+        connector=dict(line=dict(color=CORES["grade"], width=1.5, dash="dot")),
+        increasing=dict(marker=dict(color=CORES["positivo"], line=dict(width=0))),
+        decreasing=dict(marker=dict(color=CORES["negativo"], line=dict(width=0))),
+        totals=dict(marker=dict(color=CORES["primaria"], line=dict(width=0))),
+    ))
+
+    # Linha zero de referência
+    fig.add_hline(y=0, line_color=CORES["grade"], line_width=1)
+
+    # Anotação de variação total
+    variacao = ll_b - ll_a
+    pct = (variacao / abs(ll_a) * 100) if ll_a else 0
+    cor_anotacao = CORES["positivo"] if variacao >= 0 else CORES["negativo"]
+    sinal = "▲" if variacao >= 0 else "▼"
+    fig.add_annotation(
+        x=f"LL {label_b}", y=ll_b,
+        text=f"{sinal} R$ {abs(variacao):,.0f} ({abs(pct):.1f}%)",
+        showarrow=False, yshift=30,
+        font=dict(size=13, color=cor_anotacao, family="Arial"),
+    )
+
+    fig.update_layout(
+        **LAYOUT_BASE,
+        title=dict(
+            text=f"Variação do Lucro Líquido: <b>{label_a}</b> → <b>{label_b}</b>",
+            font=dict(size=15, color=CORES["texto"])
+        ),
+        height=500,
+        showlegend=False,
+        xaxis=dict(tickfont=dict(size=12, color=CORES["texto"])),
+    )
+    return fig
+
+
 def grafico_dre_waterfall(dre_dict):
     labels = list(dre_dict.keys())
     values = list(dre_dict.values())
