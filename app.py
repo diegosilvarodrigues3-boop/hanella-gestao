@@ -13,69 +13,40 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    /* Fundo geral */
-    .stApp { background-color: #F7F7F7; }
-
-    /* Sidebar clean */
+    /* Dark theme base */
+    .stApp { background-color: #0D0D0D; }
     div[data-testid="stSidebar"] {
-        background: #FFFFFF;
-        border-right: 1px solid #E8E8E8;
+        background: #111111;
+        border-right: 1px solid #222222;
     }
-    div[data-testid="stSidebar"] * { color: #1A1A1A !important; }
 
-    /* Cards de KPI */
+    /* KPI Cards */
     .kpi-card {
-        background: #FFFFFF;
-        border: 1px solid #EBEBEB;
+        background: #1C1C1C;
+        border: 1px solid #2A2A2A;
         border-radius: 14px;
         padding: 18px 16px;
         text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-    .kpi-value { font-size: 1.7rem; font-weight: 700; color: #8B7336; line-height: 1.2; }
-    .kpi-label { font-size: 0.75rem; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .kpi-delta { font-size: 0.78rem; margin-top: 5px; }
-    .pos { color: #1DB954; } .neg { color: #E53935; }
+    .kpi-value { font-size: 1.7rem; font-weight: 700; color: #C9A84C; line-height: 1.2; }
+    .kpi-label { font-size: 0.72rem; color: #666; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.6px; }
+    .pos { color: #4CAF82; } .neg { color: #E05252; }
 
-    /* Header */
-    .header-bar {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 18px 24px;
-        background: #FFFFFF;
-        border-radius: 14px;
-        border: 1px solid #EBEBEB;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        margin-bottom: 20px;
-    }
-    .header-title { font-size: 1.5rem; font-weight: 700; color: #1A1A1A; margin: 0; }
-    .header-sub { font-size: 0.82rem; color: #999; margin: 2px 0 0 0; }
-    .red-dot { width: 10px; height: 10px; border-radius: 50%; background: #8B7336; display: inline-block; margin-right: 4px; }
-
-    /* Filtro central */
-    .filter-bar {
-        background: #FFFFFF;
-        border: 1px solid #EBEBEB;
-        border-radius: 12px;
-        padding: 14px 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-    }
-    .filter-label { font-size: 0.72rem; color: #999; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+    /* Filtro */
+    .filter-label { font-size: 0.72rem; color: #555; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
 
     /* Divisor */
-    hr { border: none; border-top: 1px solid #EBEBEB; margin: 16px 0; }
+    hr { border: none; border-top: 1px solid #222; margin: 16px 0; }
 
     /* Tabs */
-    .stTabs [data-baseweb="tab"] { color: #888; }
-    .stTabs [data-baseweb="tab"][aria-selected="true"] { color: #8B7336; border-bottom: 2px solid #8B7336; }
+    .stTabs [data-baseweb="tab"] { color: #555; }
+    .stTabs [data-baseweb="tab"][aria-selected="true"] { color: #C9A84C; border-bottom: 2px solid #C9A84C; }
 
-    /* Remover padding excessivo do main */
+    /* Títulos */
+    h1, h2, h3 { color: #F0F0F0 !important; }
+
     .block-container { padding-top: 1.5rem !important; }
-
-    /* Rodapé */
-    .footer { text-align: center; color: #BBB; font-size: 0.75rem; padding: 12px 0; }
+    .footer { text-align: center; color: #444; font-size: 0.75rem; padding: 12px 0; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -113,8 +84,8 @@ with col_logo:
 with col_titulo:
     st.markdown("""
     <div style='padding-top:10px;'>
-        <div style='font-size:1.6rem;font-weight:700;color:#1A1A1A;line-height:1.1;'>Central de Gestão</div>
-        <div style='font-size:0.82rem;color:#999;margin-top:3px;'>Resultado Financeiro · Vendas · Indicadores Operacionais</div>
+        <div style='font-size:1.6rem;font-weight:700;color:#F0F0F0;line-height:1.1;'>Central de Gestão</div>
+        <div style='font-size:0.82rem;color:#666;margin-top:3px;'>Resultado Financeiro · Vendas · Indicadores Operacionais</div>
     </div>
     """, unsafe_allow_html=True)
 

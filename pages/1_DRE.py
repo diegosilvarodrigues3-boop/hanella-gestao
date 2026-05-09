@@ -8,11 +8,11 @@ st.set_page_config(page_title="DRE", page_icon="💰", layout="wide")
 st.markdown("""
 <style>
 .dre-row { display:flex; justify-content:space-between; padding:6px 12px; border-radius:6px; margin:2px 0; }
-.dre-total { background:#8B733622; font-weight:700; font-size:1.05rem; }
-.dre-subtotal { background:#F0EDE655; font-weight:600; }
-.dre-item { color:#555; font-size:0.92rem; }
-.dre-margem { color:#8B7336; font-style:italic; font-weight:600; }
-.pos { color:#00C853; } .neg { color:#FF1744; }
+.dre-total { background:#C9A84C22; font-weight:700; font-size:1.05rem; border-left: 3px solid #C9A84C; }
+.dre-subtotal { background:#1C1C1C; font-weight:600; }
+.dre-item { color:#888; font-size:0.92rem; }
+.dre-margem { color:#C9A84C; font-style:italic; font-weight:600; }
+.pos { color:#4CAF82; } .neg { color:#E05252; }
 </style>""", unsafe_allow_html=True)
 
 from utils.data_loader import carregar_todos_dados
